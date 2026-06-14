@@ -49,7 +49,7 @@ const handleRedirect = (url: string) => {
 
 const Navbar = () => (
   <nav className="fixed top-0 left-0 right-0 z-50 bg-madeira-media/95 backdrop-blur-sm border-b border-dourado-principal/20 shadow-md">
-    <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
       <div className="flex items-center gap-2">
         <span className="font-black text-xl tracking-tight uppercase text-bege-claro">Tábua<span className="text-dourado-principal">Lucrativa</span></span>
       </div>
@@ -67,12 +67,12 @@ const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section className="pt-24 md:pt-28 pb-12 md:pb-16 bg-vinho text-bege-claro">
+    <section className="pt-16 md:pt-18 pb-10 md:pb-12 bg-vinho text-bege-claro">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-block bg-dourado-principal/20 text-dourado-claro border border-dourado-principal/30 px-6 py-2 rounded-2xl text-[10px] md:text-xs font-bold uppercase tracking-widest mb-4"
+          className="inline-block bg-dourado-principal/20 text-dourado-claro border border-dourado-principal/30 px-6 py-2 rounded-2xl text-[10px] md:text-xs font-bold uppercase tracking-widest mb-3"
         >
           OPORTUNIDADE ÚNICA DE<br />RENDA EXTRA
         </motion.div>
@@ -80,7 +80,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-2xl md:text-4xl font-extrabold leading-tight md:leading-[1.15] tracking-tight mb-6 md:mb-8 text-bege-claro"
+          className="text-2xl md:text-4xl font-extrabold leading-tight md:leading-[1.15] tracking-tight mb-4 md:mb-5 text-bege-claro"
         >
           Ganhe até <span className="text-dourado-principal font-black">R$ 1.000 por semana</span> vendendo tábuas de frios deliciosas — mesmo começando do zero.
         </motion.h1>
@@ -89,7 +89,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-bege-claro/90 text-xs md:text-base font-medium max-w-2xl mx-auto mb-10 md:mb-16 leading-relaxed"
+          className="text-bege-claro/90 text-xs md:text-base font-medium max-w-2xl mx-auto mb-6 md:mb-8 leading-relaxed"
         >
           Assista ao vídeo abaixo e descubra como o aplicativo mostra quais tábuas de frios montar, quanto cobrar e quanto você pode lucrar.
         </motion.p>
