@@ -440,17 +440,21 @@ const Results = () => {
             className="flex gap-4 md:gap-6 overflow-x-auto pb-8 scrollbar-hide snap-x snap-mandatory"
           >
             {[
-              "https://i.postimg.cc/VNm0w16Y/bc3e3da1e0ae952dde1585787fe2b957.webp",
-              "https://i.postimg.cc/Xv4BW3Jn/0e41856d2bd755872a1f6f85c49cedeb.webp",
-              "https://i.postimg.cc/5tbQJ10V/526e4f9ab7334fed9865512085d2f4b7.webp",
-              "https://i.postimg.cc/JhMH8mnV/03ab7fd77fa8ec384072c6627e53ea36.webp",
-              "https://i.postimg.cc/vmbxyMmJ/46f9a52cbb6167160e29550a2b22c08e.webp",
-              "https://i.postimg.cc/bvpSP8v5/4bf79d0e330985d6ca3e66a9d6378ef9.webp",
-              "https://i.postimg.cc/YSML7kSJ/752c68c25f501fd5f1da26f6e25e71c9.webp",
-              "https://i.postimg.cc/bvpSP8vM/6e84e0e38706d7a5fbfe17b5bb19605f.webp",
-              "https://i.postimg.cc/Zq4vmZRz/7c5b2bbc423094d86d5e33c74fd17128.webp",
-              "https://i.postimg.cc/1zsVSPz2/ef7737a848897620f1e13384ec3fa411.webp",
-              "https://i.postimg.cc/hGcQngG5/fda8a74bcb0ea1b02a5bd74ba91664d3.webp"
+              "https://i.postimg.cc/LsVLpZLj/001ce9abf78c66347ea08ce9abee07e8.webp",
+              "https://i.postimg.cc/0NCDsJDn/07ed61ecd913c0c535db2e3a201ca43a.webp",
+              "https://i.postimg.cc/FKx34J3B/0913b13c30a5e9034a95d594a078e06f.webp",
+              "https://i.postimg.cc/YSxYHmYb/16d5a9b8410e0299f6baa22386b440e3.webp",
+              "https://i.postimg.cc/N0xmcrmV/18b6fafd71c5bda762cf2f3bc6a79f3f.webp",
+              "https://i.postimg.cc/wBkLpsLV/2fe6f8b87a1c6f6c0fd09b3b51970914.webp",
+              "https://i.postimg.cc/g0K8W681/41af03dfa12a70a518f30b1a3ff1fc1d.webp",
+              "https://i.postimg.cc/1zKwQNwY/5527596ab23539131ccb0df358f80617.webp",
+              "https://i.postimg.cc/TPcg6WgQ/5e847f89d4e8cf543a0f3d09d50af731.webp",
+              "https://i.postimg.cc/yNTcHSch/7b43482805985cc6f5284cb15e538d99.webp",
+              "https://i.postimg.cc/mrSCsFC0/a4e18535cd55264d77edb5c682ba502b.webp",
+              "https://i.postimg.cc/yNTcHS0q/b62c25ee2103108a9c4d442101b86fba.webp",
+              "https://i.postimg.cc/1t5655r7/cab9ab137c0bfb90164faccb9418e90d-(1).webp",
+              "https://i.postimg.cc/5tmLVF8W/db1af20fc43807a4d31cda8378e36a90.webp",
+              "https://i.postimg.cc/0Q2m220W/Ideias-De-Bufe.webp"
             ].map((url, i) => (
               <div key={i} className="min-w-[260px] md:min-w-[300px] aspect-[9/16] bg-white rounded-2xl overflow-hidden snap-center shadow-lg border border-dourado-principal/15">
                 <img 
