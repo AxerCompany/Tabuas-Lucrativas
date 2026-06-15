@@ -104,7 +104,7 @@ const Hero = () => {
           {!isPlaying ? (
             <>
               <img 
-                src="https://i.postimg.cc/TP4cZD2B/Whats_App_Image_2026_03_14_at_22_26_20.webp" 
+                src="https://i.postimg.cc/3JMgH9mw/Whats-App-Image-2026-06-15-at-12-07-45.webp" 
                 alt="Thumbnail do Vídeo" 
                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                 referrerPolicy="no-referrer"
@@ -124,7 +124,7 @@ const Hero = () => {
             </>
           ) : (
             <iframe
-              src="https://player.vimeo.com/video/1173769301?h=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1"
+              src="https://player.vimeo.com/video/1201602642?h=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1"
               className="absolute inset-0 w-full h-full"
               allow="autoplay; fullscreen; picture-in-picture"
               title="Mini VSL"
