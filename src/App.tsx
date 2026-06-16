@@ -62,9 +62,57 @@ const Navbar = () => (
     </div>
   </nav>
 );
-
 const Hero = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  const startPlaying = () => {
+    setIsPlaying(true);
+    // Tell Vimeo player to start playing instantly using official API commands (supports both object and string format)
+    if (iframeRef.current) {
+      try {
+        iframeRef.current.contentWindow?.postMessage(JSON.stringify({ method: 'play' }), '*');
+        iframeRef.current.contentWindow?.postMessage('{"method":"play"}', '*');
+      } catch (e) {
+        console.error("Vimeo postMessage command failed:", e);
+      }
+    }
+  };
+
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (event.origin.includes('vimeo.com')) {
+        try {
+          const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+          
+          if (data) {
+            // Register for the finish event once player is ready
+            if (data.event === 'ready') {
+              iframeRef.current?.contentWindow?.postMessage(
+                JSON.stringify({ method: 'addEventListener', value: 'finish' }), 
+                '*'
+              );
+            }
+            
+            // If the video ends (finishes), return to thumbnail state and pause player
+            if (data.event === 'finish' || data.event === 'ended') {
+              setIsPlaying(false);
+              try {
+                iframeRef.current?.contentWindow?.postMessage(JSON.stringify({ method: 'pause' }), '*');
+                iframeRef.current?.contentWindow?.postMessage(JSON.stringify({ method: 'setCurrentTime', value: 0 }), '*');
+              } catch (err) {
+                // Ignore iframe reference issues
+              }
+            }
+          }
+        } catch (e) {
+          // ignore parsing error
+        }
+      }
+    };
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
 
   return (
     <section className="pt-16 md:pt-18 pb-10 md:pb-12 bg-vinho text-bege-claro">
@@ -99,37 +147,45 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           className="relative aspect-[9/16] max-w-[320px] mx-auto bg-madeira-escura rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-dourado-principal/20 group cursor-pointer"
-          onClick={() => setIsPlaying(true)}
+          onClick={startPlaying}
         >
-          {!isPlaying ? (
-            <>
-              <img 
-                src="https://i.postimg.cc/3JMgH9mw/Whats-App-Image-2026-06-15-at-12-07-45.webp" 
-                alt="Thumbnail do Vídeo" 
-                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/20 group-hover:bg-black/10 transition-colors">
-                <div className="w-16 h-16 bg-dourado-principal text-madeira-escura rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <Play className="fill-current w-6 h-6 ml-1" />
-                </div>
-                <motion.div
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="bg-dourado-principal text-madeira-escura px-5 py-2 rounded-full text-xs font-bold shadow-md uppercase tracking-wider"
-                >
-                  Clique para assistir
-                </motion.div>
+          {/* Pre-buffered Vimeo player embedded in the DOM from page load without loop */}
+          <iframe
+            ref={iframeRef}
+            src="https://player.vimeo.com/video/1201602642?h=0&badge=0&autopause=0&player_id=0&app_id=58479&api=1&loop=0"
+            className={`absolute inset-0 w-full h-full transition-all duration-300 ${
+              isPlaying ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+            }`}
+            allow="autoplay; fullscreen; picture-in-picture"
+            title="Mini VSL"
+            loading="eager"
+          ></iframe>
+
+          {/* Elegant Cover Overlay: sits over the preloaded player and fades out on-click */}
+          <div 
+            className={`absolute inset-0 transition-all duration-500 bg-madeira-escura ${
+              isPlaying ? "opacity-0 scale-105 pointer-events-none" : "opacity-100 z-10"
+            }`}
+          >
+            <img 
+              src="https://i.postimg.cc/3JMgH9mw/Whats-App-Image-2026-06-15-at-12-07-45.webp" 
+              alt="Thumbnail do Vídeo" 
+              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/20 group-hover:bg-black/10 transition-colors">
+              <div className="w-16 h-16 bg-dourado-principal text-madeira-escura rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                <Play className="fill-current w-6 h-6 ml-1" />
               </div>
-            </>
-          ) : (
-            <iframe
-              src="https://player.vimeo.com/video/1201602642?h=0&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1"
-              className="absolute inset-0 w-full h-full"
-              allow="autoplay; fullscreen; picture-in-picture"
-              title="Mini VSL"
-            ></iframe>
-          )}
+              <motion.div
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="bg-dourado-principal text-madeira-escura px-5 py-2 rounded-full text-xs font-bold shadow-md uppercase tracking-wider"
+              >
+                Clique para assistir
+              </motion.div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
