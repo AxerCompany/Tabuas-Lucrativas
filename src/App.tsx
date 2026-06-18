@@ -39,9 +39,17 @@ import { motion, AnimatePresence } from 'motion/react';
 
 const handleRedirect = (url: string) => {
   const search = window.location.search;
+  
+  if (url.startsWith('#')) {
+    // Para âncoras dentro da mesma página, mantém o pathname atual com as query params e adiciona o fragmento hash
+    window.location.href = window.location.pathname + search + url;
+    return;
+  }
+  
   if (search) {
+    const cleanSearch = search.startsWith('?') ? search.substring(1) : search;
     const separator = url.includes('?') ? '&' : '?';
-    window.location.href = url + separator + search.substring(1);
+    window.location.href = url + separator + cleanSearch;
   } else {
     window.location.href = url;
   }
@@ -54,7 +62,7 @@ const Navbar = () => (
         <span className="font-black text-xl tracking-tight uppercase text-bege-claro">Tábua<span className="text-dourado-principal">Lucrativa</span></span>
       </div>
       <button 
-        onClick={() => handleRedirect('#')}
+        onClick={() => handleRedirect('https://pay.wiapy.com/apOLLpNfASC')}
         className="border border-dourado-principal text-dourado-principal hover:bg-dourado-principal hover:text-madeira-escura transition-all duration-300 text-[10px] font-bold py-2 px-5 rounded-full uppercase tracking-wider"
       >
         Acessar
