@@ -125,35 +125,24 @@ const Hero = () => {
   return (
     <section className="pt-16 md:pt-18 pb-10 md:pb-12 bg-vinho text-bege-claro">
       <div className="max-w-4xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+        <div
           className="inline-block bg-dourado-principal/20 text-dourado-claro border border-dourado-principal/30 px-6 py-2 rounded-2xl text-[10px] md:text-xs font-bold uppercase tracking-widest mb-3"
         >
           OPORTUNIDADE ÚNICA DE<br />RENDA EXTRA
-        </motion.div>
-        <motion.h1 
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+        </div>
+        <h1 
           className="text-2xl md:text-4xl font-extrabold leading-tight md:leading-[1.15] tracking-tight mb-4 md:mb-5 text-bege-claro"
         >
           Ganhe até <span className="text-dourado-principal font-black">R$ 1.000 por semana</span> vendendo tábuas de frios deliciosas — mesmo começando do zero.
-        </motion.h1>
+        </h1>
         
-        <motion.p 
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+        <p 
           className="text-bege-claro/90 text-xs md:text-base font-medium max-w-2xl mx-auto mb-6 md:mb-8 leading-relaxed"
         >
           Assista ao vídeo abaixo e descubra como o aplicativo mostra quais tábuas de frios montar, quanto cobrar e quanto você pode lucrar.
-        </motion.p>
+        </p>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+        <div 
           className="relative aspect-[9/16] max-w-[320px] mx-auto bg-madeira-escura rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-dourado-principal/20 group cursor-pointer"
           onClick={startPlaying}
         >
@@ -185,16 +174,14 @@ const Hero = () => {
               <div className="w-16 h-16 bg-dourado-principal text-madeira-escura rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                 <Play className="fill-current w-6 h-6 ml-1" />
               </div>
-              <motion.div
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
+              <div
                 className="bg-dourado-principal text-madeira-escura px-5 py-2 rounded-full text-xs font-bold shadow-md uppercase tracking-wider"
               >
                 Clique para assistir
-              </motion.div>
+              </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -229,9 +216,9 @@ const HowItWorks = () => (
             icon: ArrowUpRight 
           },
         ].map((item, i) => (
-          <div key={i} className="group p-8 bg-off-white rounded-3xl border border-dourado-principal/10 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center">
-            <div className="w-16 h-16 bg-dourado-principal/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-dourado-principal/20 transition-colors">
-              <item.icon className="w-6 h-6 text-vinho group-hover:text-vinho transition-colors" />
+          <div key={i} className="group p-8 bg-off-white rounded-3xl border border-dourado-principal/10 shadow-sm text-center">
+            <div className="w-16 h-16 bg-dourado-principal/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <item.icon className="w-6 h-6 text-vinho" />
             </div>
             <h3 className="text-sm font-bold uppercase tracking-wider mb-3 text-vinho">{item.title}</h3>
             <p className="text-corpo-texto text-sm leading-relaxed whitespace-pre-line">{item.desc}</p>
@@ -373,9 +360,9 @@ const AppTechnology = () => {
           ].map((f, i) => (
             <div 
               key={i} 
-              className="p-8 bg-white rounded-3xl border border-dourado-principal/10 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="p-8 bg-white rounded-3xl border border-dourado-principal/10 shadow-sm"
             >
-              <div className="w-12 h-12 bg-dourado-claro/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 bg-dourado-claro/10 rounded-2xl flex items-center justify-center mb-6">
                 <f.icon className="w-6 h-6 text-dourado-principal" />
               </div>
               <h4 className="font-bold text-madeira-escura text-lg mb-3 leading-tight">{f.title}</h4>
@@ -427,7 +414,7 @@ const Testimonials = () => (
             text: "Para quem está começando do zero é perfeito. O aplicativo mostra o que colocar na tábua de frios, quanto cobrar e como divulgar. Ficou muito mais fácil começar." 
           },
         ].map((t, i) => (
-          <div key={i} className="p-8 bg-off-white rounded-2xl border border-dourado-principal/30 hover:border-dourado-principal/70 transition-all duration-300 shadow-sm hover:shadow-md">
+          <div key={i} className="p-8 bg-off-white rounded-2xl border border-dourado-principal/30 shadow-sm">
             <div className="flex gap-1 mb-6">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-dourado-principal text-dourado-principal" />
@@ -524,7 +511,7 @@ const Results = () => {
                 <img 
                   src={url} 
                   alt={`Tábua Exemplo ${i + 1}`} 
-                  className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"
                 />
               </div>
@@ -538,9 +525,6 @@ const Results = () => {
 
 const WhatYouGet = () => (
   <section className="py-24 bg-bege-claro overflow-hidden relative">
-    {/* Background Glows (Subtle for light mode) */}
-    <div className="absolute top-0 left-1/4 w-[50%] h-[50%] bg-dourado-principal/5 rounded-full blur-[120px] pointer-events-none" />
-
     <div className="max-w-4xl mx-auto px-6 relative z-10">
       <div className="text-center mb-20">
         <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 leading-tight text-madeira-escura">
@@ -561,95 +545,89 @@ const WhatYouGet = () => (
 
       <div className="space-y-16">
         {/* Bonus 1 - Super Bonus */}
-        <div className="group relative">
-          <div className="absolute -inset-1 bg-gradient-to-r from-dourado-principal to-vinho rounded-[2.5rem] blur opacity-10 group-hover:opacity-20 transition duration duration-1000 group-hover:duration-200" />
-          <div className="relative bg-white p-8 md:p-12 rounded-[2.5rem] border border-dourado-principal/15 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-1 transition-all duration-500">
-            <div className="flex flex-col items-center text-center gap-8">
-              <div className="flex-1 w-full">
-                <div className="flex items-center justify-center gap-3 mb-6">
-                  <span className="bg-dourado-principal text-white text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest">
-                    BÔNUS 01
-                  </span>
-                  <span className="text-vinho text-[9px] font-black uppercase tracking-widest animate-pulse">
-                    🔥 SUPER BÔNUS
-                  </span>
-                </div>
-                
-                <h3 className="text-2xl md:text-3xl font-extrabold mb-4 leading-tight text-madeira-escura">
-                  COMO CONSEGUIR AS<br />PRIMEIRAS VENDAS
-                </h3>
-                
-                <p className="text-corpo-texto text-sm md:text-base mb-8 leading-relaxed max-w-xl mx-auto">
-                  Ter as tábuas de frios prontas é só o começo. Aqui você aprende como fazer as pessoas quererem comprar.
-                </p>
+        <div className="relative bg-white p-8 md:p-12 rounded-[2.5rem] border border-dourado-principal/15 shadow-md">
+          <div className="flex flex-col items-center text-center gap-8">
+            <div className="flex-1 w-full">
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <span className="bg-dourado-principal text-white text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest">
+                  BÔNUS 01
+                </span>
+                <span className="text-vinho text-[9px] font-black uppercase tracking-widest">
+                  🔥 SUPER BÔNUS
+                </span>
+              </div>
+              
+              <h3 className="text-2xl md:text-3xl font-extrabold mb-4 leading-tight text-madeira-escura">
+                COMO CONSEGUIR AS<br />PRIMEIRAS VENDAS
+              </h3>
+              
+              <p className="text-corpo-texto text-sm md:text-base mb-8 leading-relaxed max-w-xl mx-auto">
+                Ter as tábuas de frios prontas é só o começo. Aqui você aprende como fazer as pessoas quererem comprar.
+              </p>
 
-                <div className="flex flex-col gap-4 mb-8 max-w-md mx-auto">
-                  {[
-                    "Divulgação em redes sociais, Instagram, WhatsApp, Facebook",
-                    "Posts que despertam interesse",
-                    "Conseguir primeiros clientes",
-                    "Vender sem parecer insistente",
-                    "Transformar clientes em novos pedidos"
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-dourado-principal/10 flex items-center justify-center shrink-0">
-                        <Check className="w-3 h-3 text-dourado-principal" />
-                      </div>
-                      <p className="text-corpo-texto text-xs md:text-sm text-left">{item}</p>
+              <div className="flex flex-col gap-4 mb-8 max-w-md mx-auto">
+                {[
+                  "Divulgação em redes sociais, Instagram, WhatsApp, Facebook",
+                  "Posts que despertam interesse",
+                  "Conseguir primeiros clientes",
+                  "Vender sem parecer insistente",
+                  "Transformar clientes em novos pedidos"
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-dourado-principal/10 flex items-center justify-center shrink-0">
+                      <Check className="w-3 h-3 text-dourado-principal" />
                     </div>
-                  ))}
-                </div>
+                    <p className="text-corpo-texto text-xs md:text-sm text-left">{item}</p>
+                  </div>
+                ))}
+              </div>
 
-                <div className="inline-flex items-center gap-3 px-4 py-2 bg-bege-claro rounded-xl border border-dourado-principal/10">
-                  <span className="text-corpo-texto/40 text-[10px] line-through uppercase tracking-widest">Valor: R$ 197,00</span>
-                  <span className="text-dourado-principal text-[10px] font-black uppercase tracking-widest">Hoje: Grátis</span>
-                </div>
+              <div className="inline-flex items-center gap-3 px-4 py-2 bg-bege-claro rounded-xl border border-dourado-principal/10">
+                <span className="text-corpo-texto/40 text-[10px] line-through uppercase tracking-widest">Valor: R$ 197,00</span>
+                <span className="text-dourado-principal text-[10px] font-black uppercase tracking-widest">Hoje: Grátis</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bonus 2 */}
-        <div className="group relative">
-          <div className="absolute -inset-1 bg-gradient-to-r from-dourado-principal to-vinho rounded-[2.5rem] blur opacity-10 group-hover:opacity-20 transition duration duration-1000 group-hover:duration-200" />
-          <div className="relative bg-white p-8 md:p-12 rounded-[2.5rem] border border-dourado-principal/15 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-1 transition-all duration-500">
-            <div className="flex flex-col items-center text-center gap-8">
-              <div className="flex-1 w-full">
-                <div className="flex items-center justify-center gap-3 mb-6">
-                  <span className="bg-dourado-principal text-white text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest">
-                    BÔNUS 02
-                  </span>
-                </div>
-                
-                <h3 className="text-2xl md:text-3xl font-extrabold mb-4 leading-tight text-madeira-escura">
-                  COMO COMEÇAR A VENDER<br />TÁBUAS DE FRIOS AINDA ESTA SEMANA
-                </h3>
-                
-                <p className="text-corpo-texto text-sm md:text-base mb-8 leading-relaxed max-w-xl mx-auto">
-                  Um guia direto para quem quer começar ainda essa semana no ramo das tábuas de frios
-                </p>
+        <div className="relative bg-white p-8 md:p-12 rounded-[2.5rem] border border-dourado-principal/15 shadow-md">
+          <div className="flex flex-col items-center text-center gap-8">
+            <div className="flex-1 w-full">
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <span className="bg-dourado-principal text-white text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest">
+                  BÔNUS 02
+                </span>
+              </div>
+              
+              <h3 className="text-2xl md:text-3xl font-extrabold mb-4 leading-tight text-madeira-escura">
+                COMO COMEÇAR A VENDER<br />TÁBUAS DE FRIOS AINDA ESTA SEMANA
+              </h3>
+              
+              <p className="text-corpo-texto text-sm md:text-base mb-8 leading-relaxed max-w-xl mx-auto">
+                Um guia direto para quem quer começar ainda essa semana no ramo das tábuas de frios
+              </p>
 
-                <div className="flex flex-col gap-4 mb-8 max-w-md mx-auto">
-                  {[
-                    "Quais tábuas montar primeiro",
-                    "Onde comprar itens baratos",
-                    "Como montar sua primeira tábua",
-                    "Como tirar fotos com o celular",
-                    "Como divulgar e conseguir pedidos"
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-dourado-principal/10 flex items-center justify-center shrink-0">
-                        <Check className="w-3 h-3 text-dourado-principal" />
-                      </div>
-                      <p className="text-corpo-texto text-xs md:text-sm text-left">{item}</p>
+              <div className="flex flex-col gap-4 mb-8 max-w-md mx-auto">
+                {[
+                  "Quais tábuas montar primeiro",
+                  "Onde comprar itens baratos",
+                  "Como montar sua primeira tábua",
+                  "Como tirar fotos com o celular",
+                  "Como divulgar e conseguir pedidos"
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-dourado-principal/10 flex items-center justify-center shrink-0">
+                      <Check className="w-3 h-3 text-dourado-principal" />
                     </div>
-                  ))}
-                </div>
+                    <p className="text-corpo-texto text-xs md:text-sm text-left">{item}</p>
+                  </div>
+                ))}
+              </div>
 
-                <div className="inline-flex items-center gap-3 px-4 py-2 bg-bege-claro rounded-xl border border-dourado-principal/10">
-                  <span className="text-corpo-texto/40 text-[10px] line-through uppercase tracking-widest">Valor: R$ 97,00</span>
-                  <span className="text-dourado-principal text-[10px] font-black uppercase tracking-widest">Hoje: Grátis</span>
-                </div>
+              <div className="inline-flex items-center gap-3 px-4 py-2 bg-bege-claro rounded-xl border border-dourado-principal/10">
+                <span className="text-corpo-texto/40 text-[10px] line-through uppercase tracking-widest">Valor: R$ 97,00</span>
+                <span className="text-dourado-principal text-[10px] font-black uppercase tracking-widest">Hoje: Grátis</span>
               </div>
             </div>
           </div>
